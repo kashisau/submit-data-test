@@ -8,7 +8,9 @@ var express = require('express'),
 router.post(
     '',
     function(req, res, next) {
-        var csrfToken = req.cookies.csrfToken;
+        var csrfToken = req.cookies.csrfToken,
+            response = "Submission...\n";
+
         if (csrfToken === undefined)
             csrfToken = req.body._csrfToken;
         if (csrfToken === undefined)
@@ -18,7 +20,16 @@ router.post(
             res.send("No token");
             return next();
         }
-        res.send("Got your post.");
+        
+        response += [
+            'Received CSRF token: ...' +
+                csrfToken.substr(csrfToken.length - 9),
+            '[TODO] Validating token',
+            '[TODO] Vaidating submission',
+            '[TODO] Storing submission'
+        ].join("\n");
+        res.send(response);
+        return;
     }
 );
 
