@@ -1,0 +1,9 @@
+{
+    "name": "data-submit-test",
+	"description": "Basic Heroku Express.js app handling test.",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "*"
+	}
+}
